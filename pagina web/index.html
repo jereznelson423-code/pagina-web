@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="es" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>INCAP Express Pro — Soluciones Logísticas con Propósito</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        .gradient-brand {
+            background: linear-gradient(135deg, #1e3a8a 0%, #ea580c 100%);
+        }
+        .chat-window {
+            max-height: 400px;
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800 font-sans antialiased">
+
+    <header class="sticky top-0 z-50 bg-white shadow-md border-b border-gray-100">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            
+            <a href="#" class="flex items-center space-x-3">
+                <img src="logo_remove.png" alt="Logo INCAP Express" class="h-12 w-auto object-contain">
+                <div>
+                    <span class="text-xl font-extrabold tracking-tight text-blue-900 block leading-none">INCAP EXPRESS</span>
+                    <span class="text-xs font-semibold text-orange-600 tracking-wider uppercase">Logistics Group</span>
+                </div>
+            </a>
+
+            <nav class="hidden md:flex space-x-6 font-medium text-gray-600">
+                <a href="#inicio" class="hover:text-blue-900 transition-colors">Inicio</a>
+                <a href="#nosotros" class="hover:text-blue-900 transition-colors">Nosotros</a>
+                <a href="#servicios" class="hover:text-blue-900 transition-colors">Servicios B2B</a>
+                <a href="#dashboard" class="hover:text-blue-900 transition-colors">Dashboard</a>
+                <a href="#contacto" class="hover:text-blue-900 transition-colors">Contacto</a>
+            </nav>
+
+            <div class="flex items-center space-x-4">
+                <button onclick="toggleModal('modal-auth')" class="text-gray-600 hover:text-blue-900 font-medium text-sm flex items-center space-x-1">
+                    <i class="fa-solid fa-user-tie text-lg"></i>
+                    <span class="hidden sm:inline">Portal Corporativo</span>
+                </button>
+                
+                <button onclick="toggleCart()" class="relative bg-orange-500 hover:bg-orange-600 text-white p-2.5 rounded-full shadow transition-all duration-200">
+                    <i class="fa-solid fa-boxes-packing text-lg"></i>
+                    <span id="cart-count" class="absolute -top-2 -right-2 bg-blue-900 text-white text-xs font-bold w-5 h-5 rounded-full flex items-center justify-center border-2 border-white">0</span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <section id="inicio" class="relative bg-slate-900 text-white overflow-hidden py-20">
+        <div class="absolute inset-0 opacity-20">
+            <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('image.jpg');"></div>
+        </div>
+        <div class="container mx-auto px-4 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
+            <div class="space-y-6">
+                <span class="bg-orange-600 text-white text-xs font-bold px-3 py-1.5 rounded-full uppercase tracking-widest">Talento 100% Colombiano</span>
+                <h1 class="text-4xl sm:text-5xl font-black tracking-tight leading-tight">
+                    Conectamos tu producción con el mercado nacional
+                </h1>
+                <p class="text-gray-300 text-lg leading-relaxed">
+                    Soluciones logísticas integrales en mensajería expresa y carga masiva. Maximizamos la trazabilidad de tus operaciones corporativas B2B mientras impulsamos la educación y el empleo joven en el país.
+                </p>
+                <div class="flex flex-wrap gap-4 pt-2">
+                    <a href="#servicios" class="bg-orange-500 hover:bg-orange-600 text-white px-6 py-3 rounded-xl font-bold transition shadow-lg shadow-orange-500/20 text-center w-full sm:w-auto">Contratar Servicios</a>
+                    <a href="#dashboard" class="bg-transparent border-2 border-white hover:bg-white hover:text-slate-900 text-white px-6 py-3 rounded-xl font-bold transition text-center w-full sm:w-auto">Ver Rendimiento Real</a>
+                </div>
+            </div>
+            
+            <div class="w-full">
+                <div class="bg-slate-800 rounded-2xl overflow-hidden shadow-2xl border-4 border-slate-700/50 aspect-video relative flex flex-col items-center justify-center group">
+                    
+                    <div class="absolute inset-0 bg-gradient-to-tr from-blue-900/60 to-orange-600/30 z-0 pointer-events-none"></div>
+                    <div class="z-10 text-center px-6">
+                        <div class="w-full">
+                            <div class="bg-slate-800 rounded-2xl overflow-hidden shadow-2xl border-4 border-slate-700/50 aspect-video relative">
+        
+                                <video class="w-full h-full object-cover" controls poster="adb94bc9-c6bf-459a-8fa2-b2beb38f41f2">
+                                  <source src="video.mp4" type="video/mp4">
+                                 Tu navegador no soporta la reproducción de videos en HTML5.
+                                </video>
+
+                            </div>
+                        </div>
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="nosotros" class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <h2 class="text-3xl font-extrabold text-blue-900">Estrategia Institucional con Propósito</h2>
+                <p class="text-gray-500 mt-2">Nuestra brújula corporativa como puente de desarrollo empresarial y social.</p>
+                <div class="w-24 h-1 bg-orange-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                <div class="bg-gradient-to-br from-gray-50 to-blue-50/50 p-8 rounded-2xl border border-gray-100 shadow-sm relative overflow-hidden group hover:shadow-md transition-all">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 text-6xl text-blue-900 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-rocket"></i>
+                    </div>
+                    <div class="w-12 h-12 bg-blue-900 rounded-xl flex items-center justify-center text-white mb-5 shadow">
+                        <i class="fa-solid fa-bullseye text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-900 mb-3">Nuestra Misión</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm sm:text-base">
+                        Ofrecer soluciones logísticas integrales y de mensajería expresa de alto estándar a corporaciones y PYMEs en expansión, garantizando precisión, agilidad y mitigación de riesgos operativos. Nos apalancamos en un modelo socialmente responsable que vincula, capacita y potencia de manera directa el desarrollo de la juventud y el sector estudiantil colombiano.
+                    </p>
+                </div>
+
+                <div class="bg-gradient-to-br from-gray-50 to-orange-50/40 p-8 rounded-2xl border border-gray-100 shadow-sm relative overflow-hidden group hover:shadow-md transition-all">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 text-6xl text-orange-600 group-hover:scale-110 transition-transform">
+                        <i class="fa-solid fa-eye"></i>
+                    </div>
+                    <div class="w-12 h-12 bg-orange-600 rounded-xl flex items-center justify-center text-white mb-5 shadow">
+                        <i class="fa-solid fa-compass text-xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-blue-900 mb-3">Nuestra Visión</h3>
+                    <p class="text-gray-600 leading-relaxed text-sm sm:text-base">
+                        Consolidarnos para el año 2028 como el operador logístico B2B de referencia a nivel nacional, reconocido por su robustez tecnológica, trazabilidad quirúrgica en tiempo real y escalabilidad operacional, manteniendo el core social como motor de transformación que conecte el tejido productivo con las nuevas generaciones de profesionales.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="servicios" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-2xl mx-auto mb-12">
+                <h2 class="text-3xl font-extrabold text-blue-900">Portafolio de Servicios Logísticos</h2>
+                <p class="text-gray-500 mt-2">Selecciona y gestiona tus requerimientos de carga de manera directa con nuestro cotizador integrado.</p>
+                <div class="w-24 h-1 bg-orange-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition flex flex-col justify-between">
+                    <div class="p-6">
+                        <div class="text-orange-500 text-3xl mb-4"><i class="fa-solid fa-truck-fast"></i></div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Mensajería Expresa Urbana</h3>
+                        <p class="text-gray-500 text-xs sm:text-sm mb-4">Distribución ágil de correspondencia y paquetes de alta prioridad en perímetros urbanos centrales.</p>
+                    </div>
+                    <div class="p-6 pt-0 border-t border-gray-50 bg-gray-50/50 flex items-center justify-between">
+                        <div>
+                            <span class="block text-xs text-gray-400 uppercase font-bold tracking-wide">Tarifa Base</span>
+                            <span class="text-lg font-extrabold text-blue-900">COP $15.000</span>
+                        </div>
+                        <button onclick="addToCart('Mensajería Expresa Urbana', 15000)" class="bg-blue-900 hover:bg-blue-800 text-white p-2.5 rounded-xl text-xs font-bold transition flex items-center space-x-1">
+                            <i class="fa-solid fa-cart-plus"></i> <span>Añadir</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition flex flex-col justify-between">
+                    <div class="p-6">
+                        <div class="text-blue-900 text-3xl mb-4"><i class="fa-solid fa-boxes-stacked"></i></div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Carga Masiva Nacional</h3>
+                        <p class="text-gray-500 text-xs sm:text-sm mb-4">Transporte intermunicipal estructurado para mercancías volumétricas de alta densidad con resguardo.</p>
+                    </div>
+                    <div class="p-6 pt-0 border-t border-gray-50 bg-gray-50/50 flex items-center justify-between">
+                        <div>
+                            <span class="block text-xs text-gray-400 uppercase font-bold tracking-wide">Tarifa Base</span>
+                            <span class="text-lg font-extrabold text-blue-900">COP $180.000</span>
+                        </div>
+                        <button onclick="addToCart('Carga Masiva Nacional', 180000)" class="bg-blue-900 hover:bg-blue-800 text-white p-2.5 rounded-xl text-xs font-bold transition flex items-center space-x-1">
+                            <i class="fa-solid fa-cart-plus"></i> <span>Añadir</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition flex flex-col justify-between">
+                    <div class="p-6">
+                        <div class="text-blue-900 text-3xl mb-4"><i class="fa-solid fa-boxes-stacked"></i></div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Carga Masiva Internacional</h3>
+                        <p class="text-gray-500 text-xs sm:text-sm mb-4">Transporte Internacional estructurado para mercancías volumétricas de alta densidad con resguardo.</p>
+                    </div>
+                    <div class="p-6 pt-0 border-t border-gray-50 bg-gray-50/50 flex items-center justify-between">
+                        <div>
+                            <span class="block text-xs text-gray-400 uppercase font-bold tracking-wide">Tarifa Base</span>
+                            <span class="text-lg font-extrabold text-blue-900">COP $564,273</span>
+                        </div>
+                        <button onclick="addToCart('Carga Masiva Nacional', 180000)" class="bg-blue-900 hover:bg-blue-800 text-white p-2.5 rounded-xl text-xs font-bold transition flex items-center space-x-1">
+                            <i class="fa-solid fa-cart-plus"></i> <span>Añadir</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition flex flex-col justify-between">
+                    <div class="p-6">
+                        <div class="text-orange-500 text-3xl mb-4"><i class="fa-solid fa-graduation-cap"></i></div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Logística Sector Académico</h3>
+                        <p class="text-gray-500 text-xs sm:text-sm mb-4">Distribución estratégica y custodia técnica de material educativo, exámenes y dotaciones.</p>
+                    </div>
+                    <div class="p-6 pt-0 border-t border-gray-50 bg-gray-50/50 flex items-center justify-between">
+                        <div>
+                            <span class="block text-xs text-gray-400 uppercase font-bold tracking-wide">Tarifa Base</span>
+                            <span class="text-lg font-extrabold text-blue-900">COP $45.000</span>
+                        </div>
+                        <button onclick="addToCart('Logística Sector Académico', 45000)" class="bg-blue-900 hover:bg-blue-800 text-white p-2.5 rounded-xl text-xs font-bold transition flex items-center space-x-1">
+                            <i class="fa-solid fa-cart-plus"></i> <span>Añadir</span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="bg-white rounded-2xl shadow-sm border border-gray-100 overflow-hidden hover:shadow-md transition flex flex-col justify-between">
+                    <div class="p-6">
+                        <div class="text-blue-900 text-3xl mb-4"><i class="fa-solid fa-handshake"></i></div>
+                        <h3 class="text-lg font-bold text-gray-900 mb-2">Convenios Corporativos Full</h3>
+                        <p class="text-gray-500 text-xs sm:text-sm mb-4">Solución permanente B2B con tarifas de retención preferenciales e integraciones personalizadas.</p>
+                    </div>
+                    <div class="p-6 pt-0 border-t border-gray-50 bg-gray-50/50 flex items-center justify-between">
+                        <div>
+                            <span class="block text-xs text-gray-400 uppercase font-bold tracking-wide">Tarifa Base</span>
+                            <span class="text-lg font-extrabold text-blue-900">COP $350.000</span>
+                        </div>
+                        <button onclick="addToCart('Convenios Corporativos Full', 350000)" class="bg-blue-900 hover:bg-blue-800 text-white p-2.5 rounded-xl text-xs font-bold transition flex items-center space-x-1">
+                            <i class="fa-solid fa-cart-plus"></i> <span>Añadir</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="dashboard" class="py-16 bg-white border-y border-gray-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center max-w-2xl mx-auto mb-10">
+                <h2 class="text-3xl font-extrabold text-blue-900">Dashboard de Rendimiento Comercial 2026</h2>
+                <p class="text-gray-500 mt-2">Métricas e histórico operacional consolidado extraído de bases comerciales.</p>
+                <div class="w-24 h-1 bg-orange-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-5 mb-10">
+                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100 shadow-sm flex items-center space-x-4">
+                    <div class="p-3 bg-blue-900 rounded-xl text-white text-xl"><i class="fa-solid fa-sack-dollar"></i></div>
+                    <div>
+                        <span class="text-xs font-bold text-gray-400 block uppercase tracking-wide">Facturación Neta</span>
+                        <span class="text-lg font-extrabold text-blue-900">COP 235.473.298</span>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100 shadow-sm flex items-center space-x-4">
+                    <div class="p-3 bg-orange-500 rounded-xl text-white text-xl"><i class="fa-solid fa-route"></i></div>
+                    <div>
+                        <span class="text-xs font-bold text-gray-400 block uppercase tracking-wide">Total Envíos</span>
+                        <span class="text-lg font-extrabold text-blue-900">249 Guías</span>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100 shadow-sm flex items-center space-x-4">
+                    <div class="p-3 bg-green-600 rounded-xl text-white text-xl"><i class="fa-solid fa-weight-hanging"></i></div>
+                    <div>
+                        <span class="text-xs font-bold text-gray-400 block uppercase tracking-wide">Volumen Logístico</span>
+                        <span class="text-lg font-extrabold text-blue-900">6.160 kg</span>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100 shadow-sm flex items-center space-x-4">
+                    <div class="p-3 bg-purple-600 rounded-xl text-white text-xl"><i class="fa-solid fa-users-viewfinder"></i></div>
+                    <div>
+                        <span class="text-xs font-bold text-gray-400 block uppercase tracking-wide">Portafolio Clientes</span>
+                        <span class="text-lg font-extrabold text-blue-900">500 PYMEs / Corp</span>
+                    </div>
+                </div>
+                <div class="bg-gray-50 p-5 rounded-2xl border border-gray-100 shadow-sm flex items-center space-x-4">
+                    <div class="p-3 bg-teal-600 rounded-xl text-white text-xl"><i class="fa-solid fa-award"></i></div>
+                    <div>
+                        <span class="text-xs font-bold text-gray-400 block uppercase tracking-wide">Incentivos Convenio</span>
+                        <span class="text-lg font-extrabold text-blue-900">COP 17.941.241</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="bg-gray-50 rounded-2xl border border-gray-100 overflow-hidden shadow-sm">
+                <div class="border-b border-gray-200 bg-gray-100/50 flex flex-wrap text-sm font-medium">
+                    <button onclick="switchTab('tab-ventas')" id="btn-tab-ventas" class="px-6 py-4 text-blue-900 border-b-2 border-blue-900 bg-white font-bold flex items-center space-x-2">
+                        <i class="fa-solid fa-chart-line"></i> <span>Ventas Mensuales</span>
+                    </button>
+                    <button onclick="switchTab('tab-destinos')" id="btn-tab-destinos" class="px-6 py-4 text-gray-500 hover:text-blue-900 font-bold flex items-center space-x-2">
+                        <i class="fa-solid fa-earth-americas"></i> <span>Métricas de Destinos</span>
+                    </button>
+                    <button onclick="switchTab('tab-clientes')" id="btn-tab-clientes" class="px-6 py-4 text-gray-500 hover:text-blue-900 font-bold flex items-center space-x-2">
+                        <i class="fa-solid fa-address-book"></i> <span>Segmento Clientes</span>
+                    </button>
+                </div>
+
+                <div class="p-6 bg-white">
+                    <div id="tab-ventas" class="tab-content block overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="bg-slate-900 text-white text-xs uppercase font-bold tracking-wider">
+                                    <th class="p-3 rounded-l-lg">Mes</th>
+                                    <th class="p-3">Facturación Estimada (COP)</th>
+                                    <th class="p-3 rounded-r-lg">Pedidos Emitidos (Guías)</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm divide-y divide-gray-100 text-gray-600">
+                                <tr class="hover:bg-gray-50"><td class="p-3 font-semibold text-gray-900">Enero</td><td class="p-3">COP $32.966.261</td><td class="p-3">34</td></tr>
+                                <tr class="hover:bg-gray-50"><td class="p-3 font-semibold text-gray-900">Febrero</td><td class="p-3">COP $35.320.994</td><td class="p-3">37</td></tr>
+                                <tr class="hover:bg-gray-50"><td class="p-3 font-semibold text-gray-900">Marzo</td><td class="p-3">COP $37.675.727</td><td class="p-3">39</td></tr>
+                                <tr class="hover:bg-gray-50"><td class="p-3 font-semibold text-gray-900">Abril</td><td class="p-3">COP $42.385.193</td><td class="p-3">44</td></tr>
+                                <tr class="hover:bg-gray-50"><td class="p-3 font-semibold text-gray-900">Mayo</td><td class="p-3">COP $40.030.460</td><td class="p-3">42</td></tr>
+                                <tr class="hover:bg-gray-50"><td class="p-3 font-semibold text-gray-900">Junio</td><td class="p-3">COP $47.094.659</td><td class="p-3">49</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div id="tab-destinos" class="tab-content hidden overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="bg-slate-900 text-white text-xs uppercase font-bold tracking-wider">
+                                    <th class="p-3 rounded-l-lg">Hub de Destino</th>
+                                    <th class="p-3 rounded-r-lg">Valor Total Consolidado (COP)</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm divide-y divide-gray-100 text-gray-600">
+                                <tr class="hover:bg-gray-50"><td class="p-3 font-semibold text-gray-900">New York (INT)</td><td class="p-3">COP $44.632.865</td></tr>
+                                <tr class="hover:bg-gray-50"><td class="p-3 font-semibold text-gray-900">Santiago (INT)</td><td class="p-3">COP $34.558.790</td></tr>
+                                <tr class="hover:bg-gray-50"><td class="p-3 font-semibold text-gray-900">México DF (INT)</td><td class="p-3">COP $29.964.626</td></tr>
+                                <tr class="hover:bg-gray-50"><td class="p-3 font-semibold text-gray-900">Miami (INT)</td><td class="p-3">COP $18.735.744</td></tr>
+                                <tr class="hover:bg-gray-50"><td class="p-3 font-semibold text-gray-900">Sao Paulo (INT)</td><td class="p-3">COP $16.618.988</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div id="tab-clientes" class="tab-content hidden overflow-x-auto">
+                        <table class="w-full text-left border-collapse">
+                            <thead>
+                                <tr class="bg-slate-900 text-white text-xs uppercase font-bold tracking-wider">
+                                    <th class="p-3 rounded-l-lg">Perfil de Cliente</th>
+                                    <th class="p-3 rounded-r-lg">Volumen Bruto Comercializado (COP)</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-sm divide-y divide-gray-100 text-gray-600">
+                                <tr class="hover:bg-gray-50"><td class="p-3 font-semibold text-gray-900">Gran Empresa (Corporativos B2B)</td><td class="p-3">COP $118.439.387</td></tr>
+                                <tr class="hover:bg-gray-50"><td class="p-3 font-semibold text-gray-900">PYME / Persona Natural</td><td class="p-3">COP $117.033.911</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="py-16 bg-gray-50">
+        <div class="container mx-auto px-4 max-w-4xl">
+            <div class="bg-white rounded-3xl border border-gray-100 shadow-xl overflow-hidden grid grid-cols-1 md:grid-cols-5">
+                
+                <div class="md:col-span-2 gradient-brand p-8 text-white flex flex-col justify-between">
+                    <div class="space-y-6">
+                        <h3 class="text-2xl font-extrabold tracking-tight">Atención Centralizada</h3>
+                        <p class="text-blue-100 text-sm leading-relaxed">Conéctate con nuestros analistas para estructurar un modelo de distribución a gran escala.</p>
+                        
+                        <div class="space-y-4 text-sm">
+                            <div class="flex items-center space-x-3">
+                                <i class="fa-solid fa-location-dot text-orange-400 w-5"></i>
+                                <span>Bogotá, Colombia</span>
+                            </div>
+                            <div class="flex items-center space-x-3">
+                                <i class="fa-solid fa-envelope text-orange-400 w-5"></i>
+                                <span>contacto@incapexpress.com</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-xs text-blue-200 mt-8 border-t border-white/10 pt-4">
+                        INCAP Express Pro &copy; 2026
+                    </div>
+                </div>
+
+                <form onsubmit="handleContact(event)" class="md:col-span-3 p-8 space-y-4">
+                    <h4 class="text-xl font-bold text-blue-900 mb-2">Envíanos un Mensaje</h4>
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-1">Nombre Completo</label>
+                            <input type="text" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-900 transition">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-1">Empresa / Nit</label>
+                            <input type="text" class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-900 transition">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-1">Correo Electrónico Corporativo</label>
+                        <input type="email" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-900 transition">
+                    </div>
+                    <div>
+                        <label class="block text-xs font-bold text-gray-500 uppercase tracking-wide mb-1">Requerimiento Logístico</label>
+                        <textarea rows="3" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-900 transition" placeholder="Detalla volumen de carga aproximado..."></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-blue-900 hover:bg-blue-800 text-white font-bold py-3 rounded-xl shadow-lg shadow-blue-900/10 transition">
+                        Enviar Solicitud B2B
+                    </button>
+                </form>
+
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-slate-900 text-gray-400 py-12 text-sm border-t border-slate-800">
+        <div class="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div class="space-y-3">
+                <img src="logo_remove.png" alt="Logo Footer INCAP" class="h-10 w-auto object-contain brightness-0 invert opacity-75 mb-2">
+                <p class="text-xs leading-relaxed">Infraestructura logística robusta con alto compromiso de inclusión juvenil y convenios corporativos estratégicos en Colombia.</p>
+            </div>
+            <div>
+                <span class="text-white font-bold block mb-3">Enlaces Rápidos</span>
+                <div class="grid grid-cols-2 gap-2 text-xs">
+                    <a href="#inicio" class="hover:text-white transition">Inicio</a>
+                    <a href="#nosotros" class="hover:text-white transition">Nosotros</a>
+                    <a href="#servicios" class="hover:text-white transition">Servicios</a>
+                    <a href="#dashboard" class="hover:text-white transition">Métricas</a>
+                </div>
+            </div>
+            <div>
+                <span class="text-white font-bold block mb-2">Legal</span>
+                <p class="text-xs">Sujeto a regulaciones vigentes del Ministerio de Transporte de Colombia. Tratamiento de Datos Personales bajo Ley 1581 de 2012.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="modal-auth" class="fixed inset-0 z-50 hidden bg-slate-900/60 backdrop-blur-sm flex items-center justify-center p-4">
+        <div class="bg-white rounded-3xl w-full max-w-md shadow-2xl overflow-hidden border border-gray-100 transition-all duration-300">
+            <div class="bg-gray-100 flex p-1.5 border-b border-gray-200">
+                <button onclick="toggleAuthForm('login')" id="btn-auth-login" class="flex-1 text-center py-2 text-xs font-bold rounded-xl bg-white text-blue-900 shadow-sm transition">
+                    Iniciar Sesión
+                </button>
+                <button onclick="toggleAuthForm('register')" id="btn-auth-register" class="flex-1 text-center py-2 text-xs font-bold rounded-xl text-gray-500 hover:text-blue-900 transition">
+                    Crear Cuenta
+                </button>
+            </div>
+
+            <form id="form-login" onsubmit="handleAuth(event, 'login')" class="p-6 space-y-4 block">
+                <h3 class="text-lg font-bold text-blue-900">Acceso Aliados Logísticos</h3>
+                <div>
+                    <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Correo Electrónico</label>
+                    <input type="email" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-900 transition">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Contraseña</label>
+                    <input type="password" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-900 transition">
+                </div>
+                <button type="submit" class="w-full bg-blue-900 hover:bg-blue-800 text-white font-bold py-2.5 rounded-xl transition shadow">
+                    Validar Credenciales
+                </button>
+                <button type="button" onclick="toggleModal('modal-auth')" class="w-full text-center text-xs text-gray-400 hover:text-gray-600 mt-2">Cerrar</button>
+            </form>
+
+            <form id="form-register" onsubmit="handleAuth(event, 'register')" class="p-6 space-y-4 hidden">
+                <h3 class="text-lg font-bold text-blue-900">Alta de Nueva Empresa</h3>
+                <div>
+                    <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Razón Social</label>
+                    <input type="text" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-900 transition">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Correo Corporativo</label>
+                    <input type="email" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-900 transition">
+                </div>
+                <div>
+                    <label class="block text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Contraseña de Seguridad</label>
+                    <input type="password" required class="w-full bg-gray-50 border border-gray-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-2 focus:ring-blue-900 transition">
+                </div>
+                <button type="submit" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-2.5 rounded-xl transition shadow">
+                    Registrar Cuenta B2B
+                </button>
+                <button type="button" onclick="toggleModal('modal-auth')" class="w-full text-center text-xs text-gray-400 hover:text-gray-600 mt-2">Cerrar</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="sidebar-cart" class="fixed top-0 right-0 h-full w-full sm:w-96 bg-white shadow-2xl z-50 transform translate-x-full transition-transform duration-300 border-l border-gray-100 flex flex-col justify-between hidden">
+        <div class="p-6 border-b border-gray-100 flex justify-between items-center bg-gray-50">
+            <span class="font-extrabold text-blue-900 flex items-center space-x-2">
+                <i class="fa-solid fa-boxes-packing text-orange-500"></i>
+                <span>Servicios Solicitados</span>
+            </span>
+            <button onclick="toggleCart()" class="text-gray-400 hover:text-gray-600 text-xl"><i class="fa-solid fa-xmark"></i></button>
+        </div>
+
+        <div id="cart-items-container" class="p-6 overflow-y-auto flex-1 space-y-4 text-sm text-gray-500">
+            El carro de compras se encuentra vacío. Selecciona servicios arriba.
+        </div>
+
+        <div class="p-6 border-t border-gray-100 bg-gray-50 space-y-4">
+            <div class="flex justify-between font-bold text-gray-900">
+                <span>Subtotal Estimado:</span>
+                <span id="cart-total-display">COP $0</span>
+            </div>
+            <button onclick="checkoutCart()" class="w-full bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-xl shadow transition text-center block text-sm">
+                Procesar Orden Logística
+            </button>
+        </div>
+    </div>
+
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col items-end">
+        <div id="chatbot-window" class="chat-window w-80 sm:w-96 bg-white rounded-2xl shadow-2xl border border-gray-100 hidden flex-col overflow-hidden mb-4 transition-all">
+            <div class="gradient-brand p-4 text-white flex justify-between items-center shadow-md">
+                <div class="flex items-center space-x-2">
+                    <div class="w-2.5 h-2.5 bg-green-400 rounded-full animate-ping"></div>
+                    <span class="font-bold tracking-tight">Soporte Asistido INCAP</span>
+                </div>
+                <button onclick="toggleChatbot()" class="text-white/80 hover:text-white"><i class="fa-solid fa-minus"></i></button>
+            </div>
+            
+            <div id="chat-box" class="p-4 flex-1 overflow-y-auto space-y-3 bg-gray-50/50 text-xs sm:text-sm h-64">
+                <div class="bg-blue-900 text-white p-3 rounded-2xl rounded-tl-none max-w-[85%] shadow-sm">
+                    Hola, soy el asistente virtual de INCAP Express. ¿En qué puedo guiarte hoy? Puedes consultarme sobre nuestras tarifas o el core social.
+                </div>
+            </div>
+
+            <div class="p-3 bg-white border-t border-gray-100 flex space-x-2">
+                <input type="text" id="chat-input" placeholder="Escribe tu duda aquí..." class="flex-1 bg-gray-50 text-sm border border-gray-200 rounded-xl px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-900">
+                <button onclick="sendChatMessage()" class="bg-blue-900 hover:bg-blue-800 text-white px-3.5 py-2 rounded-xl transition"><i class="fa-solid fa-paper-plane"></i></button>
+            </div>
+        </div>
+
+        <button onclick="toggleChatbot()" class="bg-blue-900 hover:bg-blue-800 text-white p-4 rounded-full shadow-2xl transition-all duration-200 hover:scale-105">
+            <i class="fa-solid fa-comments text-2xl"></i>
+        </button>
+    </div>
+
+    <script>
+        function toggleModal(id) {
+            const modal = document.getElementById(id);
+            modal.classList.toggle('hidden');
+        }
+
+        function toggleAuthForm(mode) {
+            const btnLogin = document.getElementById('btn-auth-login');
+            const btnRegister = document.getElementById('btn-auth-register');
+            const formLogin = document.getElementById('form-login');
+            const formRegister = document.getElementById('form-register');
+
+            if(mode === 'login') {
+                btnLogin.className = "flex-1 text-center py-2 text-xs font-bold rounded-xl bg-white text-blue-900 shadow-sm transition";
+                btnRegister.className = "flex-1 text-center py-2 text-xs font-bold rounded-xl text-gray-500 hover:text-blue-900 transition";
+                formLogin.classList.replace('hidden', 'block');
+                formRegister.classList.replace('block', 'hidden');
+            } else {
+                btnRegister.className = "flex-1 text-center py-2 text-xs font-bold rounded-xl bg-white text-blue-900 shadow-sm transition";
+                btnLogin.className = "flex-1 text-center py-2 text-xs font-bold rounded-xl text-gray-500 hover:text-blue-900 transition";
+                formRegister.classList.replace('hidden', 'block');
+                formLogin.classList.replace('block', 'hidden');
+            }
+        }
+
+        function handleAuth(event, type) {
+            event.preventDefault();
+            alert(type === 'login' ? 'Acceso correcto al portal corporativo.' : 'Registro exitoso B2B.');
+            toggleModal('modal-auth');
+        }
+
+        function switchTab(tabId) {
+            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.replace('block', 'hidden'));
+            document.getElementById(tabId).classList.replace('hidden', 'block');
+
+            const tabs = ['tab-ventas', 'tab-destinos', 'tab-clientes'];
+            tabs.forEach(t => {
+                const btn = document.getElementById(`btn-${t}`);
+                if(t === tabId) {
+                    btn.className = "px-6 py-4 text-blue-900 border-b-2 border-blue-900 bg-white font-bold flex items-center space-x-2";
+                } else {
+                    btn.className = "px-6 py-4 text-gray-500 hover:text-blue-900 font-bold flex items-center space-x-2";
+                }
+            });
+        }
+
+        let cart = [];
+        function toggleCart() {
+            const sidebar = document.getElementById('sidebar-cart');
+            sidebar.classList.toggle('hidden');
+            sidebar.classList.toggle('translate-x-full');
+        }
+
+        document.addEventListener('keydown', function(event) {
+            if (event.key === 'Escape') {
+                const sidebar = document.getElementById('sidebar-cart');
+                if (!sidebar.classList.contains('hidden')) {
+                    toggleCart();
+                }
+            }
+        });
+
+        function addToCart(name, price) {
+            cart.push({ name, price });
+            updateCartUI();
+        }
+
+        function updateCartUI() {
+            document.getElementById('cart-count').innerText = cart.length;
+            const container = document.getElementById('cart-items-container');
+            const totalDisplay = document.getElementById('cart-total-display');
+            
+            if(cart.length === 0) {
+                container.innerHTML = "El carro de compras se encuentra vacío.";
+                totalDisplay.innerText = "COP $0";
+                return;
+            }
+
+            let total = 0;
+            container.innerHTML = cart.map((item, index) => {
+                total += item.price;
+                return `
+                    <div class="flex justify-between items-center bg-gray-50 p-3 rounded-xl border border-gray-100">
+                        <div>
+                            <span class="font-bold text-gray-800 block">${item.name}</span>
+                            <span class="text-xs text-orange-600 font-bold">COP $${item.price.toLocaleString()}</span>
+                        </div>
+                        <button onclick="removeFromCart(${index})" class="text-red-500 hover:text-red-700 text-sm"><i class="fa-solid fa-trash-can"></i></button>
+                    </div>
+                `;
+            }).join('');
+            totalDisplay.innerText = `COP $${total.toLocaleString()}`;
+        }
+
+        function removeFromCart(index) {
+            cart.splice(index, 1);
+            updateCartUI();
+        }
+
+        function checkoutCart() {
+            if(cart.length === 0) return alert('El carro está vacío.');
+            alert('Orden enviada con éxito al departamento comercial.');
+            cart = [];
+            updateCartUI();
+            toggleCart();
+        }
+
+        function toggleChatbot() {
+            const window = document.getElementById('chatbot-window');
+            window.classList.toggle('hidden');
+            window.classList.toggle('flex');
+        }
+
+        function sendChatMessage() {
+            const input = document.getElementById('chat-input');
+            const box = document.getElementById('chat-box');
+            const txt = input.value.trim();
+            if(!txt) return;
+
+            box.innerHTML += `<div class="bg-gray-200 text-gray-800 p-3 rounded-2xl rounded-tr-none max-w-[85%] self-end ml-auto shadow-sm text-right">${txt}</div>`;
+            input.value = '';
+            box.scrollTop = box.scrollHeight;
+
+            setTimeout(() => {
+                let reply = "Disculpa, ¿podrías especificar si deseas cotizar, validar cobertura o conocer los convenios?";
+                const low = txt.toLowerCase();
+                
+                if(low.includes('tarifa') || low.includes('precio') || low.includes('costo')) {
+                    reply = "Nuestras tarifas base van desde COP $15.000 en mensajería expresa urbana.";
+                } else if(low.includes('mision') || low.includes('vision') || low.includes('social')) {
+                    reply = "INCAP Express respalda la educación integral del talento estudiantil en Colombia.";
+                } else if(low.includes('facturacion') || low.includes('excel')) {
+                    reply = "Reportamos una facturación neta consolidada de COP 235.473.298.";
+                }
+
+                box.innerHTML += `<div class="bg-blue-900 text-white p-3 rounded-2xl rounded-tl-none max-w-[85%] shadow-sm">${reply}</div>`;
+                box.scrollTop = box.scrollHeight;
+            }, 600);
+        }
+
+        function handleContact(e) {
+            e.preventDefault();
+            alert('Gracias por escribirnos. Nos comunicaremos contigo a la brevedad.');
+            e.target.reset();
+        }
+    </script>
+    <div class="fixed bottom-6 right-6 z-50 font-sans">
+    
+    <button id="chat-toggle-btn" class="bg-gradient-to-tr from-orange-500 to-amber-500 text-slate-950 p-4 rounded-full shadow-2xl hover:scale-105 transition active:scale-95 flex items-center justify-center relative border border-orange-400/20 cursor-pointer">
+        <i id="chat-icon" class="fa-solid fa-comments text-2xl"></i>
+        <span class="absolute -top-1 -right-1 flex h-3 w-3">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-orange-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-3 w-3 bg-orange-500"></span>
+        </span>
+    </button>
+
+    <div id="chat-window" class="hidden fixed bottom-24 right-6 w-[345px] sm:w-[380px] h-[480px] bg-slate-900 border border-slate-800 rounded-2xl shadow-2xl flex flex-col overflow-hidden transition-all duration-300">
+        
+        <div class="bg-slate-800 p-4 border-b border-slate-700 flex items-center justify-between">
+            <div class="flex items-center gap-2">
+                <div class="w-2.5 h-2.5 rounded-full bg-emerald-500 animate-pulse"></div>
+                <div>
+                    <h4 class="text-sm font-bold text-white">Asistente Virtual INCAP</h4>
+                    <p class="text-[10px] text-slate-400 font-medium">Atención al Cliente & Soporte</p>
+                </div>
+            </div>
+            <button id="chat-close-btn" class="text-slate-400 hover:text-white transition cursor-pointer">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+        </div>
+
+        <div id="chat-messages" class="flex-1 p-4 overflow-y-auto space-y-3 text-xs scrollbar-thin scrollbar-thumb-slate-800">
+            <div class="flex items-start gap-2 max-w-[85%]">
+                <div class="bg-slate-800 p-3 rounded-2xl rounded-tl-none border border-slate-700/60 text-slate-300 leading-relaxed shadow-sm">
+                    ¡Hola! Bienvenido al canal de servicio de <strong>INCAP Express</strong>. 
+                    <br><br>
+                    ¿En qué puedo asesorarte hoy? Prueba consultando sobre: <strong>servicios</strong>, <strong>cobertura / destinos</strong>, <strong>tarifas</strong> o <strong>convenios</strong>.
+                </div>
+            </div>
+        </div>
+
+        <div class="p-3 bg-slate-950/80 border-t border-slate-800 flex gap-2 items-center">
+            <input id="chat-input" type="text" placeholder="Escribe tu consulta aquí..." class="flex-1 bg-slate-900 border border-slate-800 rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-orange-500 transition">
+            <button id="chat-send-btn" class="bg-orange-500 hover:bg-orange-600 text-slate-950 p-2.5 rounded-xl transition flex items-center justify-center cursor-pointer">
+                <i class="fa-solid fa-paper-plane text-xs"></i>
+            </button>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    (function() {
+        const toggleBtn = document.getElementById('chat-toggle-btn');
+        const chatWindow = document.getElementById('chat-window');
+        const closeBtn = document.getElementById('chat-close-btn');
+        const icon = document.getElementById('chat-icon');
+        const input = document.getElementById('chat-input');
+        const sendBtn = document.getElementById('chat-send-btn');
+        const messagesContainer = document.getElementById('chat-messages');
+
+        // Control de apertura y cierre del panel de mensajería
+        toggleBtn.addEventListener('click', () => {
+            chatWindow.classList.toggle('hidden');
+            if (chatWindow.classList.contains('hidden')) {
+                icon.className = "fa-solid fa-comments text-2xl";
+            } else {
+                icon.className = "fa-solid fa-chevron-down text-xl";
+                input.focus();
+            }
+        });
+
+        closeBtn.addEventListener('click', () => {
+            chatWindow.classList.add('hidden');
+            icon.className = "fa-solid fa-comments text-2xl";
+        });
+
+        // Procesamiento del mensaje del usuario y generación de respuestas genéricas
+        function procesarMensajeChat() {
+            const consultaTexto = input.value.trim();
+            if (consultaTexto === "") return;
+
+            // Renderizar el mensaje ingresado por el usuario
+            const userBox = document.createElement('div');
+            userBox.className = "flex items-start gap-2 max-w-[85%] ml-auto justify-end";
+            userBox.innerHTML = `
+                <div class="bg-orange-500 text-slate-950 p-3 rounded-2xl rounded-tr-none font-semibold shadow-md">
+                    ${consultaTexto}
+                </div>
+            `;
+            messagesContainer.appendChild(userBox);
+            input.value = "";
+            messagesContainer.scrollTop = messagesContainer.scrollHeight;
+
+            // Algoritmo de respuesta predictiva comercial
+            setTimeout(() => {
+                const botBox = document.createElement('div');
+                botBox.className = "flex items-start gap-2 max-w-[85%]";
+                
+                let respuestaAutomata = "Gracias por escribirnos. Para brindarte una atención personalizada o radicar una solicitud formal, te invitamos a usar el botón de <strong>Contacto Comercial</strong> en nuestro menú superior o comunicarte directamente a nuestras líneas de atención.";
+                const queryClean = consultaTexto.toLowerCase();
+
+                if (queryClean.includes('servicio') || queryClean.includes('portafolio') || queryClean.includes('ofrecen') || queryClean.includes('hacen')) {
+                    respuestaAutomata = "En <strong>INCAP Express</strong> somos especialistas en soluciones logísticas integrales B2B:<br><br>• <strong>Carga Mayoritaria:</strong> Manejo y transporte masivo de mercancías industriales.<br>• <strong>Mensajería Express:</strong> Envíos urbanos y nacionales urgentes con prioridad de entrega.<br>• <strong>Logística Institucional:</strong> Distribución y control certificado de material educativo corporativo.";
+                } else if (queryClean.includes('destino') || queryClean.includes('cobertura') || queryClean.includes('ruta') || queryClean.includes('ciudad') || queryClean.includes('donde') || queryClean.includes('viaja')) {
+                    respuestaAutomata = "Contamos con una robusta red logística que garantiza cobertura a nivel <strong>nacional</strong> en las principales ciudades del país, así como conexiones estratégicas para despachos y hubs de distribución <strong>internacionales</strong>.";
+                } else if (queryClean.includes('precio') || queryClean.includes('tarifa') || queryClean.includes('costo') || queryClean.includes('cotizar') || queryClean.includes('cuanto')) {
+                    respuestaAutomata = "Nuestras tarifas se calculan de manera personalizada según las dimensiones, el peso de la carga y el destino de entrega.<br><br>Para solicitar una cotización exacta para tu empresa, por favor déjanos tus datos de contacto o comunícate con un asesor comercial a través de nuestra línea directa.";
+                } else if (queryClean.includes('convenio') || queryClean.includes('descuento') || queryClean.includes('alianza') || queryClean.includes('universidad') || queryClean.includes('beca')) {
+                    respuestaAutomata = "Disponemos de un programa exclusivo de <strong>Convenios Corporativos y Educativos</strong> diseñado para optimizar los costos de operación de pequeñas, medianas y grandes empresas. Los aliados disfrutan de tarifas preferenciales, prioridad de despacho y facturación unificada.";
+                } else if (queryClean.includes('rastreo') || queryClean.includes('guia') || queryClean.includes('donde esta') || queryClean.includes('seguimiento') || queryClean.includes('paquete')) {
+                    respuestaAutomata = "Todos nuestros despachos cuentan con sistema de trazabilidad digital de punta a punta. Puedes consultar el estado de tu guía en tiempo real ingresando el número de seguimiento en nuestra plataforma de rastreo corporativa.";
+                } else if (queryClean.includes('hola') || queryClean.includes('buenos dias') || queryClean.includes('buenas tardes')) {
+                    respuestaAutomata = "¡Hola! Un gusto saludarte. ¿En qué solución o información logística estás interesado el día de hoy?";
+                }
+
+                botBox.innerHTML = `
+                    <div class="bg-slate-800 p-3 rounded-2xl rounded-tl-none border border-slate-700/60 text-slate-300 leading-relaxed shadow-md">
+                        ${respuestaAutomata}
+                    </div>
+                `;
+                messagesContainer.appendChild(botBox);
+                messagesContainer.scrollTop = messagesContainer.scrollHeight;
+            }, 600); // Pequeño retraso de procesamiento de 0.6 segundos
+        }
+
+        // Eventos disparadores
+        sendBtn.addEventListener('click', procesarMensajeChat);
+        input.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') procesarMensajeChat();
+        });
+    })();
+</script>
+    
+</body>
+</html>
